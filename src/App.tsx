@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Layout, Input } from "./components";
+import { Layout, Input, Task } from "./components";
 
 function App() {
   return (
@@ -13,12 +13,21 @@ function App() {
           type="search" 
           placeholder="Search Task" 
         />
-        <div className="mt-16">
-
+        <div className="mt--32 fw--bold">
+          <strong className="mr--8">Category</strong>
+          <select className="c--gray">
+            <option>Work</option>  
+            <option>House</option>  
+            <option>Family</option>  
+          </select> 
         </div>
       </div>
-      <hr />
-      
+      <hr className="mt--32" />
+      <div className="container mt--32">
+        <Task className="mb--16" title="Non-stop only"/>
+        <Task className="mb--16" title="With baggage only"/>
+        <Task className="mb--16" title="Refundable only"/>
+      </div>
     </Layout>
   );
 }

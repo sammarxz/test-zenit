@@ -20,6 +20,7 @@ export default createGlobalStyle`
   }
 
   body {
+    color: var(--color-black);
     margin-left: auto;
     margin-right: auto;
     width: 100%;

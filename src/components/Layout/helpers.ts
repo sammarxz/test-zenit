@@ -67,4 +67,19 @@ export default createGlobalStyle`
   .fd--row {
     flex-direction: row;
   }
+
+
+  /* Text */
+
+  .fw--bold {
+    font-weight: 700;
+  }
+
+  .fw--regular {
+    font-weight: 400;
+  }
+
+  .fw--light {
+    font-weight: 300;
+  }
 `

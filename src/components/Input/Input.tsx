@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { AiOutlineSearch } from 'react-icons/ai'
 
@@ -24,7 +24,7 @@ const SearchIcon = styled.div`
   top: 20px;
 `
 
-const Input: FC<InputProps> = ({ name, isSearch, ...rest }) => {
+const Input: React.FC<InputProps> = ({ name, isSearch, ...rest }) => {
   return (
     <Wrapper>
       <InputField id={name} {...rest} />

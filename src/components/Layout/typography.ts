@@ -66,8 +66,6 @@ export default createGlobalStyle`
 
   hr {
     display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border: 1px solid var(--color-light-gray);
+    border-bottom: 1px solid var(--color-border);
   }
 `
