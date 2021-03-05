@@ -4,7 +4,6 @@ import Reset from "./reset";
 import Root from "./root";
 import Typography from "./typography";
 import Helpers from "./helpers";
-import Container from "./container";
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -13,10 +12,8 @@ const Layout: React.FC = ({ children }) => {
       <Root />
       <Typography />
       <Helpers />
-      
-      <Container>
-        {children}
-      </Container>
+
+      {children}
     </>
   );
 };

@@ -1,6 +1,20 @@
 import { createGlobalStyle, css } from 'styled-components'
 
 export default createGlobalStyle`
+  /* Colors */
+
+  .c--gray {
+    color: var(--color-gray);
+  }
+
+  .c--light-gray {
+    color: var(--color-light-gray);
+  }
+
+  .c--black {
+    color: var(--color-black);
+  }
+
   /* Spaces */
 
   .m--0 {

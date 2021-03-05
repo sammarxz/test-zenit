@@ -14,7 +14,8 @@ export default createGlobalStyle`
     --color-white: #fff;
     --color-black: #1B1D28;
     --color-gray: #7795A9;
-    --color-light-gray: #E7E7EE;
+    --color-light-gray: #BDCDD8;
+    --color-border: #E7E7EE;
     --color-cta: #1900FF;
   }
 
@@ -23,5 +24,14 @@ export default createGlobalStyle`
     margin-right: auto;
     width: 100%;
     overflow-x: hidden;
+  }
+
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  ::placeholder {
+    color: var(--color-light-gray);
   }
 `

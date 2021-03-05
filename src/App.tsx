@@ -1,11 +1,24 @@
 import React from "react";
 
-import { Layout } from "./components";
+import { Layout, Input } from "./components";
 
 function App() {
   return (
     <Layout>
-      <h1 className="mt--32">To-Do List</h1>
+      <div className="container">
+        <h1 className="mt--32 mb--16">To-Do List</h1>
+        <Input 
+          name="search"
+          isSearch
+          type="search" 
+          placeholder="Search Task" 
+        />
+        <div className="mt-16">
+
+        </div>
+      </div>
+      <hr />
+      
     </Layout>
   );
 }
