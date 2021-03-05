@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
+
+import { Layout } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-      </header>
-    </div>
+    <Layout>
+      <h1 className="mt--32">To-Do List</h1>
+    </Layout>
   );
 }
 
