@@ -125,6 +125,10 @@ export default createGlobalStyle`
 
   /* Border */
 
+  .br--32 {
+    border-radius: 32px;
+  }
+
   .br--12 {
     border-radius: 12px;
   }
