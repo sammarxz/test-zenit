@@ -4,7 +4,7 @@ import { Wrapper, InputField, SearchIcon } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  isSearch: boolean;
+  isSearch?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({ name, isSearch, ...rest }) => {

@@ -39,11 +39,16 @@ export default createGlobalStyle`
     &.is--primary {
       box-shadow: 0px 8px 20px rgba(97, 62, 234, 0.32);
     }
-    
+
     &.is--icon {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    &:focus,
+    &:active {
+      color: #fff;
     }
   }
 
