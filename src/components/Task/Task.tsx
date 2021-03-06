@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
-import { motion, useMotionValue, useAnimation } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 
 import { Wrapper } from './wrapper'
 import { Checkbox } from './checkbox'
@@ -20,27 +20,24 @@ type Info = {
 
 const Task: React.FC<TaskProps> = ({ className, title }) => {
   const [checked, setChecked] = useState(false)
-  const x = useMotionValue(0)
   const controls = useAnimation()
 
   async function handleDragEnd(event:any, info:Info) {
     if (undefined !== info) {
-      const offset = info.offset.x;
-      const velocity = info.velocity.x;
+      const offset = info.offset.x
+      const velocity = info.velocity.x
   
       if (offset < -140 || velocity < -500) {
         await controls.start({
           x: "-110px",
         })
       } else {
-        console.log('else',offset)
         controls.start({
           x: 0,
           opacity: 1,
         })
       }
     }
-    
   }
 
   return (
