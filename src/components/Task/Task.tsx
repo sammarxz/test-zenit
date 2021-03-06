@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion'
 
 import { Wrapper } from './wrapper'
 import { Checkbox } from './checkbox'
@@ -20,7 +20,11 @@ type Info = {
 
 const Task: React.FC<TaskProps> = ({ className, title }) => {
   const [checked, setChecked] = useState(false)
+  const x = useMotionValue(0)
   const controls = useAnimation()
+  const input = [-120, 0, 120]
+  const output = [1, 0, 1]
+  const opacity = useTransform(x, input, output)
 
   async function handleDragEnd(event:any, info:Info) {
     if (undefined !== info) {
@@ -47,7 +51,8 @@ const Task: React.FC<TaskProps> = ({ className, title }) => {
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.5}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        style={{ 
+        style={{
+          x,
           width: "100%", 
           overflow: "hidden", 
           willChange: "transform",
@@ -66,14 +71,16 @@ const Task: React.FC<TaskProps> = ({ className, title }) => {
           </label>
         </Checkbox>
       </motion.div>
-      <Actions className="d--flex">
-        <button className="edit bg--cta p--16 d--flex ai--center jc--space-between">
-          <AiOutlineEdit size="1.4rem" className="c--white" />
-        </button>
-        <button className="delete bg--red p--16 d--flex ai--center jc--space-between">
-          <AiOutlineDelete size="1.4rem" className="c--white" />
-        </button>
-      </Actions>
+      <motion.div style={{ opacity }}>
+        <Actions className="d--flex">
+          <button className="edit bg--cta p--16 d--flex ai--center jc--space-between">
+            <AiOutlineEdit size="1.4rem" className="c--white" />
+          </button>
+          <button className="delete bg--red p--16 d--flex ai--center jc--space-between">
+            <AiOutlineDelete size="1.4rem" className="c--white" />
+          </button>
+        </Actions>
+      </motion.div>
     </Wrapper>
   )
 }

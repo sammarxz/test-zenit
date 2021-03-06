@@ -33,7 +33,7 @@ export default createGlobalStyle`
 
   /* Spaces */
 
-  ${[0, 4, 8, 16, 24, 32, 40, 48].map((size) => css`
+  ${[0, 4, 8, 16, 24, 32, 40, 72].map((size) => css`
     .m--${size} {
       margin: ${size}px;
     }
@@ -99,10 +99,41 @@ export default createGlobalStyle`
     font-weight: 300;
   }
 
+  .fs--small {
+    font-size: .8rem;
+  }
+
+  .fs--normal {
+    font-size: 1rem;
+  }
+
+  .fs--medium {
+    font-size: 1.4rem;
+  }
+
 
   /* Positions */
 
   .p--relative {
     position: relative;
+  }
+
+  .p--absolute {
+    position: absolute;
+  }
+
+
+  /* Border */
+
+  .br--12 {
+    border-radius: 12px;
+  }
+
+  .br--8 {
+    border-radius: 8px;
+  }
+
+  .br--4 {
+    border-radius: 4px;
   }
 `

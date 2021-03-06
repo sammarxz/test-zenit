@@ -1,16 +1,25 @@
-import React from "react";
+import React from "react"
+import styled from 'styled-components'
+import { AiOutlinePlus } from 'react-icons/ai'
 
-import { Layout, Input, Task } from "./components";
+import { Layout, Input, Task, Button } from "./components"
+
+const AddButton = styled.div`
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9;
+`
 
 function App() {
   return (
     <Layout>
       <div className="container">
-        <h1 className="mt--32 mb--16">To-Do List</h1>
+        <h1 className="mt--72 mb--16">To-Do List</h1>
         <Input 
           name="search"
           isSearch
-          type="search" 
+          type="text" 
           placeholder="Search Task" 
         />
         <div className="mt--32 fw--bold">
@@ -28,6 +37,14 @@ function App() {
         <Task className="mb--16" title="With baggage only" />
         <Task className="mb--16" title="Refundable only" />
       </div>
+      <AddButton>
+        <Button 
+          className="p--16 br--12 bg--cta c--white is--icon is--primary" 
+          onClick={() => console.log('click')}
+        >
+          <AiOutlinePlus size="1.6rem" />
+        </Button>
+      </AddButton>
     </Layout>
   );
 }

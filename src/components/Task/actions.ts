@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Actions = styled.div`
   position: absolute;
   top: 2px;
-  right: 0;
+  right: -1px;
   z-index: 1;
 
   .edit {
