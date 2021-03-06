@@ -23,10 +23,10 @@ function App() {
         </div>
       </div>
       <hr className="mt--32" />
-      <div className="container mt--32">
-        <Task className="mb--16" title="Non-stop only"/>
-        <Task className="mb--16" title="With baggage only"/>
-        <Task className="mb--16" title="Refundable only"/>
+      <div className="mt--16">
+        <Task className="mb--16" title="Non-stop only" />
+        <Task className="mb--16" title="With baggage only" />
+        <Task className="mb--16" title="Refundable only" />
       </div>
     </Layout>
   );

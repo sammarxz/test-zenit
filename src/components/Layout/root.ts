@@ -17,6 +17,7 @@ export default createGlobalStyle`
     --color-light-gray: #BDCDD8;
     --color-border: #E7E7EE;
     --color-cta: #1900FF;
+    --color-red: #DD4A68;
   }
 
   body {

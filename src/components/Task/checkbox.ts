@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const Checkbox = styled.div`
-  display: flex;
-  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  z-index: 2;
 
   input {
     position: absolute; // take it out of document flow

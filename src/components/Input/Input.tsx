@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { motion } from 'framer-motion'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -26,14 +27,23 @@ const SearchIcon = styled.div`
 
 const Input: React.FC<InputProps> = ({ name, isSearch, ...rest }) => {
   return (
-    <Wrapper>
-      <InputField id={name} {...rest} />
-      {isSearch && (
-        <SearchIcon>
-          <AiOutlineSearch size="1.4rem" className="c--light-gray" />
-        </SearchIcon>
-      )}
-    </Wrapper>
+    <motion.div
+      whileFocus={{
+        scale: 1.2
+      }}
+      whileTap={{
+        scale: 0.98,
+      }}
+    >
+      <Wrapper>
+        <InputField id={name} {...rest} />
+        {isSearch && (
+          <SearchIcon>
+            <AiOutlineSearch size="1.4rem" className="c--light-gray" />
+          </SearchIcon>
+        )}
+      </Wrapper>
+    </motion.div>
   )
 }
 

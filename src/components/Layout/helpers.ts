@@ -15,17 +15,33 @@ export default createGlobalStyle`
     color: var(--color-black);
   }
 
+  .c--white {
+    color: var(--color-white);
+  }
+
+  .bg--red {
+    background-color: var(--color-red);
+  }
+
+  .bg--cta {
+    background-color: var(--color-cta);
+  }
+
+  .bg--white {
+    background-color: #fff;
+  }
+
   /* Spaces */
 
-  .m--0 {
-    margin: 0;
-  }
-
-  .p--0 {
-    padding: 0;
-  }
-
   ${[0, 4, 8, 16, 24, 32, 40, 48].map((size) => css`
+    .m--${size} {
+      margin: ${size}px;
+    }
+
+    .p--${size} {
+      padding: ${size}px;
+    }
+
     ${['top', 'right', 'bottom', 'left'].map((dir) => css`
       .m${dir[0]}--${size}{
         margin-${dir}: ${size}px;
@@ -81,5 +97,12 @@ export default createGlobalStyle`
 
   .fw--light {
     font-weight: 300;
+  }
+
+
+  /* Positions */
+
+  .p--relative {
+    position: relative;
   }
 `
