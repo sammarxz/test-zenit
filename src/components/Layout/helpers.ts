@@ -71,6 +71,16 @@ export default createGlobalStyle`
     height: 100%;
   }
 
+  ${[8, 16, 24, 32, 40, 72].map((size) => css`
+    .w--${size} {
+      width: ${size}px;
+    }
+
+    .h--${size} {
+      height: ${size}px;
+    }
+  `)}
+
 
   /* Flex */
 
