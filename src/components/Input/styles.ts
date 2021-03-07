@@ -5,11 +5,6 @@ const Wrapper = styled.div`
 `
 
 const InputField = styled.input`
-  font-size: 14px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  width: 100%;
-  padding: 16px 20px;
   transition: border-color .3s ease;
 
   &:active,
@@ -28,4 +23,14 @@ const SearchIcon = styled.div`
   top: 20px;
 `
 
-export { Wrapper, InputField, SearchIcon }
+const Textarea = styled.textarea`
+  height: 100px;
+  transition: border-color .3s ease;
+
+  &:active,
+  &:focus {
+    border-color: var(--color-cta);
+  }
+`
+
+export { Wrapper, InputField, SearchIcon, Textarea }

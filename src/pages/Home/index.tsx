@@ -7,20 +7,6 @@ import { Layout, Input, Task } from "../../components"
 import { AddButton } from './styles'
 
 function Home() {
-  // const [isOpen, toggleOpen] = useCycle(false, true);
-  // const variants = {
-  //   open: { 
-  //     left: '32px',
-  //     width: 'auto',
-  //     height: '56px',
-  //   },
-  //   closed: { 
-  //     left: 'auto',
-  //     width: '60px',
-  //     height: '60px',
-  //   },
-  // }
-
   const transition = {
     duration: 0.4,
     ease: [0.43, 0.13, 0.23, 0.96]
@@ -40,7 +26,8 @@ function Home() {
             name="search"
             isSearch
             type="text" 
-            placeholder="Search Task" 
+            placeholder="Search Task"
+            className="w--100 br--8 border fs--small p--16"
           />
           <div className="mt--32 fw--bold">
             <strong className="mr--8">Category</strong>

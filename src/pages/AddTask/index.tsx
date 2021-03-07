@@ -1,8 +1,9 @@
 import React from "react"
 import { motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
+import { BiChevronLeft } from 'react-icons/bi'
 
-import { Layout, Input } from "../../components"
+import { Layout, Input, TextArea } from "../../components"
 
 import { AddButton } from './styles'
 
@@ -21,12 +22,20 @@ function AddTask() {
         transition={transition}
       >
         <div className="container mt--72">
-          <NavLink to="/">back</NavLink>
+          <NavLink to="/" className="c--black">
+            <BiChevronLeft size="1.8rem" />
+          </NavLink>
           <h1 className="mb--16">New Task</h1>
           <Input 
             name="title"
             type="text" 
-            placeholder="Title" 
+            placeholder="Title"
+            className="w--100 br--8 border fs--small p--16 mb--16"
+          />
+          <TextArea 
+            name="note"
+            placeholder="Write a note"
+            className="w--100 br--8 border fs--small p--16"
           />
         </div>
       </motion.div>

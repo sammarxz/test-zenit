@@ -3,6 +3,13 @@ import { createGlobalStyle, css } from 'styled-components'
 export default createGlobalStyle`
   /* Colors */
 
+  .border {
+    border: 1px solid var(--color-border);
+  }
+
+
+  /* Colors */
+
   .c--gray {
     color: var(--color-gray);
   }
@@ -111,7 +118,7 @@ export default createGlobalStyle`
   }
 
   .fs--small {
-    font-size: .8rem;
+    font-size: .9rem;
   }
 
   .fs--normal {
