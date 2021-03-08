@@ -6,20 +6,24 @@ import { Days } from './Days'
 
 import { CalendarWrapper } from './styles'
 
+interface CalendarProps {
+  onSelectDate: Function
+}
+
 interface CalendarState {
   date: any;
   startDate?: Moment;
   endDate?: Moment;
 }
 
-class Calendar extends React.Component<{}, CalendarState> {
+class Calendar extends React.Component<CalendarProps, CalendarState> {
   constructor(props:any) {
     super(props)
 
     this.state = {
       date: moment(),
-      startDate: moment().subtract(5, 'day'),
-      endDate: moment().add(3, 'day')
+      startDate: moment(),
+      endDate: moment()
     }
   }
 
@@ -39,6 +43,7 @@ class Calendar extends React.Component<{}, CalendarState> {
   }
 
   changeDate(date:any) {
+    const { onSelectDate } = this.props
     let { startDate, endDate } = this.state
 
     if (undefined !== startDate) {
@@ -57,7 +62,7 @@ class Calendar extends React.Component<{}, CalendarState> {
         endDate
       });
 
-      console.log()
+      onSelectDate(startDate, endDate)
     }
   }
 
