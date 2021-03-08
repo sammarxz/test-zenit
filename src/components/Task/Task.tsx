@@ -6,10 +6,8 @@ import { Wrapper } from './wrapper'
 import { Checkbox } from './checkbox'
 import { Actions } from './actions'
 
-
 interface TaskProps {
-  className?: string;
-  checked?: boolean;
+  completed?: boolean;
   title: string;
 }
 
@@ -18,8 +16,8 @@ type Info = {
   velocity: any
 }
 
-const Task: React.FC<TaskProps> = ({ className, title }) => {
-  const [checked, setChecked] = useState(false)
+const Task: React.FC<TaskProps> = ({ title, completed }) => {
+  const [checked, setChecked] = useState(completed)
   const x = useMotionValue(0)
   const controls = useAnimation()
   const input = [-120, 0, 120]

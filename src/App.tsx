@@ -2,7 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
-import { Home, AddTask } from './pages';
+import Home from './pages/Home'
+import AddTask from './pages/AddTask'
 
 const App = () => {
   return (
