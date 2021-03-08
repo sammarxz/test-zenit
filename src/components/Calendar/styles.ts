@@ -17,7 +17,7 @@ const DaysWrapper = styled.nav`
     text-align: center;
     user-select: none;
     cursor: pointer;
-    margin: 8px 0;
+    margin: 4px 0;
     padding: 8px;
     position: relative;
     font-size: 16px;

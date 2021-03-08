@@ -10,6 +10,7 @@ const AddButton = styled(motion.div)`
   height: 60px;
   z-index: 9;
 `
+
 const RadioGroup = styled.div`
   display: flex;
   overflow: hidden;
@@ -48,4 +49,25 @@ const RadioGroup = styled.div`
   }
 `
 
-export { AddButton, RadioGroup }
+const CalendarWrapper = styled(motion.div)`
+  background: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  padding-top: 42px;
+  border-radius: 16px 16px 0 0;
+`
+
+const CalendarOverlay = styled(motion.div)`
+  background-color: rgba(0, 0, 0, 0.79);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+`
+
+export { AddButton, RadioGroup, CalendarWrapper, CalendarOverlay }

@@ -168,4 +168,19 @@ export default createGlobalStyle`
   .br--4 {
     border-radius: 4px;
   }
+
+
+  /* Displays */
+
+  .d--block {
+    display: block;
+  }
+
+  .d--inline-block {
+    display: inline-block;
+  }
+
+  .d--inline {
+    display: inline;
+  }
 `

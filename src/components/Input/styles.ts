@@ -17,7 +17,7 @@ const InputField = styled.input`
   }
 `
 
-const SearchIcon = styled.div`
+const InputIcon = styled.div`
   position: absolute;
   right: 20px;
   top: 20px;
@@ -33,4 +33,4 @@ const Textarea = styled.textarea`
   }
 `
 
-export { Wrapper, InputField, SearchIcon, Textarea }
+export { Wrapper, InputField, InputIcon, Textarea }

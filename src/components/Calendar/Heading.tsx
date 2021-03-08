@@ -15,7 +15,7 @@ const Heading: React.FC<HeadingProps> = ({
   date, changeMonth, resetDate
 }) => {
   return (
-    <MonthNavigation className="d--flex ai--center jc--space-between mb--16">
+    <MonthNavigation className="d--flex ai--center jc--space-between mb--24">
       <h1 onClick={() => resetDate()}>
         <span className="mr--8">{date.format('MMM')}</span>
         <span>{date.format('YYYY')}</span>
