@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import moment, { Moment } from 'moment'
 import { motion, useCycle } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import { BiChevronLeft } from 'react-icons/bi'
@@ -13,6 +14,8 @@ function AddTask() {
     ease: [0.6, 0.1, -0.05, 0.9]
   }
 
+  const [startDate, setStartDate] = useState<string|undefined>(undefined)
+  const [endDate, setEndDate] = useState<string|undefined>(undefined)
   const [isOpen, openToggle] = useCycle(false, true)
 
   const variants = {
@@ -21,6 +24,18 @@ function AddTask() {
     },
     closed: {
       y: "100%",
+    }
+  }
+
+  const selectDate = (start:Moment, end:Moment) => {
+    if (start !== undefined) {
+      setStartDate(
+        start.format('MM/DD/YY')
+      )
+  
+      setEndDate(
+        end.format('MM/DD/YY')
+      )
     }
   }
 
@@ -36,7 +51,7 @@ function AddTask() {
           <NavLink to="/" className="c--black">
             <BiChevronLeft size="1.8rem" />
           </NavLink>
-          <h1 className="mb--32">New Task</h1>
+          <h1 className="mb--8">New Task</h1>
           <div className="mb--24">
             <Input 
               name="title"
@@ -68,6 +83,7 @@ function AddTask() {
             isDate
             placeholder="Select an Date"
             click={() => openToggle()}
+            value={startDate && (`from ${startDate} to ${endDate}`)}
             className="w--100 br--8 border fs--small p--16"
           />
           <CalendarOverlay 
@@ -90,11 +106,14 @@ function AddTask() {
             animate={isOpen ? "open" : "closed"}
           >
             <div className="container">
-              <Calendar  />
+              <Calendar  
+                onSelectDate={(startDate:Moment, endDate:Moment) => selectDate(startDate, endDate)}
+              />
               <motion.button 
                 className="btn p--16 br--12 bg--cta c--white is--primary mt--32 mb--32" 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={() => openToggle()}
                 exit={{
                   borderRadius: "32px",
                   transition: {
