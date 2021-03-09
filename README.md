@@ -3,6 +3,8 @@
 
 Esse é minha resolução de teste para a vaga de **front-end developer** na empresa Zenit Creative. Recebi uma tela no Figma e deveria converter para React. A única condição foi que se usasse Typescript, Styled Components e Redux ou SW. Aproveitei para praticar e aprender alguns pontos fracos meus, que no momento é o Redux e Typescript (devido a falta de prática). Como são uma empresa de código criativo, resolvi implementar a solução usando [Framer Motion](https://www.framer.com/motion/), adicionando algumas interações e animações que julguei interessantes para o usuário (UX). Aprendi tudo pela própria documentação do site.
 
+[Preview](https://clever-booth-a9a0ee.netlify.app/)
+
 ![Preview](https://raw.githubusercontent.com/sammarxz/test-zenit/master/preview.gif)
 
 
