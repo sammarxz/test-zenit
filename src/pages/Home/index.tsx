@@ -15,12 +15,17 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  addTodo(data: Todo[]): Todo[]
+  todos: Todo[],
 }
 
 class Home extends Component<StateProps, DispatchProps> {
+  state = {
+    todos: this.props.todos
+  }
+
   render() {
-    const { todos } = this.props
+    const { todos } = this.state
+
     const transition = {
       duration: 0.4,
       ease: [0.43, 0.13, 0.23, 0.96]
@@ -55,7 +60,7 @@ class Home extends Component<StateProps, DispatchProps> {
           <hr className="mt--32" />
           <div className="mt--16">
            {todos.map(todo => (
-             <Task title={todo.title} completed={todo.completed} />
+             <Task key={todo.id} title={todo.title} completed={todo.completed} />
            ))}
           </div>
         </motion.div>

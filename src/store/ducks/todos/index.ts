@@ -8,7 +8,7 @@ const INITIAL_STATE: TodosState = {
       title: 'Swipe me to the left',
       note: 'Some note here',
       category: 'Work',
-      date: 'Mar, 06, 2021',
+      date: 'from 03/26/21 to 03/27/21',
       completed: true,
     }
   ]
@@ -17,8 +17,12 @@ const INITIAL_STATE: TodosState = {
 const reducer: Reducer<TodosState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TodosTypes.ADD_TODO:
-      console.log(state)
-      return state
+      return {
+        data: [
+          ...state.data,
+          action.payload.data
+        ]
+      }
     default:
       return state
   }

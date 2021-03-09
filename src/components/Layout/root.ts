@@ -54,6 +54,16 @@ export default createGlobalStyle`
     }
   }
 
+  input,
+  textarea {
+    transition: border-color .3s ease;
+
+    &:active,
+    &:focus {
+      border-color: var(--color-cta);
+    }
+  }
+
   ::placeholder {
     color: var(--color-light-gray);
   }

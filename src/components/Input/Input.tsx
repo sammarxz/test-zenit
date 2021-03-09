@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import { AiOutlineSearch, AiOutlineCalendar } from 'react-icons/ai'
-import { Wrapper, InputField, InputIcon, Textarea } from './styles'
+
+import {InputIcon } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -11,8 +12,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ name, isSearch, isDate, click, ...rest }) => {
   return (
-    <Wrapper>
-      <InputField id={name} {...rest} onClick={() => click ? click() : console.log('click')} />
+    <div className="p--relative">
+      <input id={name} name={name} {...rest} onClick={() => click ? click() : console.log('click')} />
       {isSearch && (
         <InputIcon>
           <AiOutlineSearch size="1.4rem" className="c--light-gray" />
@@ -23,14 +24,8 @@ const Input: React.FC<InputProps> = ({ name, isSearch, isDate, click, ...rest })
           <AiOutlineCalendar size="1.4rem" className="c--light-gray" />
         </InputIcon>
       )}
-    </Wrapper>
+    </div>
   )
 }
 
-const TextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({ ...rest }) => {
-  return (
-    <Textarea {...rest} />
-  )
-}
-
-export { Input, TextArea }
+export { Input }

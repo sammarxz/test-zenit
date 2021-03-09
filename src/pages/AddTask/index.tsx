@@ -1,29 +1,78 @@
 import { Component } from 'react'
 import { Moment } from 'moment'
-import { motion, useCycle } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { Redirect } from "react-router-dom"
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { NavLink } from 'react-router-dom'
 import { BiChevronLeft } from 'react-icons/bi'
 
+import { Todo } from '../../store/ducks/todos/types'
 import * as TodosActions from '../../store/ducks/todos/actions'
 
-import { Layout, Input, TextArea, Calendar } from "../../components"
+import { Layout, Input, Calendar } from "../../components"
 
 import { AddButton, RadioGroup, CalendarWrapper, CalendarOverlay } from './styles'
 
-class AddTask extends Component {
+interface StateProps {
+  startDate: string;
+  endDate: string;
+  isOpen: boolean;
+  todo: {
+    id?: number;
+    title: string;
+    note: string;
+    category: string;
+    date: string;
+    completed?: boolean;
+  };
+}
+
+interface DispatchProps {
+  addTodo(data: Todo): any;
+}
+
+class AddTask extends Component<DispatchProps, StateProps> {
   state = {
-    startDate: undefined,
-    endDate: undefined,
-    isOpen: false
+    startDate: '',
+    endDate: '',
+    isOpen: false,
+    todo: {
+      id: Math.floor(Math.random() * 100) + 1,
+      title: '',
+      note: '',
+      category: '',
+      date: '',
+      completed: false
+    },
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { todo } = this.state
+    let { value, name } = e.target
+
+    this.setState({ 
+      todo: {
+        ...todo,
+        [name]: value
+      }
+    });
   }
 
   selectDate(start:Moment, end:Moment) {
+    const { todo } = this.state
+
     if (start !== undefined) {
+      const startDate = start.format('MM/DD/YY')
+      const endDate = end.format('MM/DD/YY')
+
       this.setState({
-        startDate: start.format('MM/DD/YY'),
-        endDate: end.format('MM/DD/YY')
+        startDate,
+        endDate,
+        todo: {
+          ...todo,
+          date: `from ${startDate} to ${endDate}`
+        }
       })
     }
   }
@@ -36,13 +85,31 @@ class AddTask extends Component {
     })
   }
 
-  addNewTodo() {
-    // this.props.addTodo('Alguma coisa')
+  addNewTodo = () => {
+    const { todo } = this.state
+    
+    if (todo.title && todo.note && todo.category && todo.date) {
+      this.props.addTodo(todo)
+
+      this.setState({
+        todo: {
+          id: Math.floor(Math.random() * 100) + 1,
+          title: '',
+          note: '',
+          category: '',
+          date: '',
+          completed: false
+        },
+      })
+    }
   }
 
   render() {
-    console.log(this.props)
-    const { startDate, endDate, isOpen } = this.state
+    const { 
+      isOpen, 
+      todo: { title, note, category, date },
+    } = this.state
+
     const variants = {
       open: {
         y: 0,
@@ -55,7 +122,7 @@ class AddTask extends Component {
       duration: 0.4,
       ease: [0.6, 0.1, -0.05, 0.9]
     }
-
+    
     return (
       <Layout>
         <motion.div 
@@ -75,32 +142,62 @@ class AddTask extends Component {
                 type="text" 
                 placeholder="Title"
                 className="w--100 br--8 border fs--small p--16 mb--16"
+                value={title}
+                onChange={this.handleChange}
               />
-              <TextArea 
+              <textarea 
                 name="note"
                 placeholder="Write a note"
                 className="w--100 br--8 border fs--small p--16"
+                value={note}
+                onChange={this.handleChange}
               />
             </div>
             <div className="mb--24">
               <h3 className="fs--small c--light-gray mt--16 mb--8">Category</h3>
               <RadioGroup className="mb--16">
-                <input type="radio" id="work" name="category" />
+                <input 
+                  type="radio" 
+                  id="work" 
+                  name="category" 
+                  value="Work" 
+                  onChange={this.handleChange}
+                  checked={category === "Work"}
+                />
                 <label htmlFor="work">Work</label>
-                <input type="radio" id="house" name="category" />
+                <input 
+                  type="radio" 
+                  id="house" 
+                  name="category" 
+                  value="House" 
+                  onChange={this.handleChange}
+                  checked={category === "House"}
+                />
                 <label htmlFor="house">House</label>
-                <input type="radio" id="family" name="category" />
+                <input 
+                  type="radio" 
+                  id="family" 
+                  name="category" 
+                  value="Family" 
+                  onChange={this.handleChange}
+                  checked={category === "Family"}
+                />
                 <label htmlFor="family">Family</label>
               </RadioGroup>
             </div>
-            <label htmlFor="date" className="d--block c--light-gray fs--small mb--8 fw--bold">Remind me on a date</label>
+            <label 
+              htmlFor="date" 
+              className="d--block c--light-gray fs--small mb--8 fw--bold
+            ">
+              Remind me on a date
+            </label>
             <Input
               name="date"
               type="text"
               isDate
               placeholder="Select an Date"
               click={() => this.openToggle()}
-              value={startDate && (`from ${startDate} to ${endDate}`)}
+              value={date}
               className="w--100 br--8 border fs--small p--16"
             />
             <CalendarOverlay 
@@ -217,8 +314,7 @@ class AddTask extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch:Dispatch) => {
+const mapDispatchToProps = (dispatch:Dispatch) => 
   bindActionCreators(TodosActions, dispatch)
-}
 
-export default connect(mapDispatchToProps)(AddTask);
+export default connect(null, mapDispatchToProps)(AddTask);
