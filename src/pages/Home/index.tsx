@@ -65,13 +65,19 @@ class Home extends Component<DispatchProps, StateProps> {
           <hr className="mt--32" />
           <div className="mt--16">
             {todos.map((todo) => (
-              <Task
-                key={todo.id}
-                id={todo.id}
-                title={todo.title}
-                completed={todo.completed}
-                handleDelete={this.deleteTodo}
-              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Task
+                  key={todo.id}
+                  id={todo.id}
+                  title={todo.title}
+                  completed={todo.completed}
+                  handleDelete={this.deleteTodo}
+                />
+              </motion.div>
             ))}
           </div>
         </motion.div>
