@@ -7,8 +7,10 @@ import { Checkbox } from './checkbox'
 import { Actions } from './actions'
 
 interface TaskProps {
+  id: number;
   completed?: boolean;
   title: string;
+  handleDelete: Function;
 }
 
 type Info = {
@@ -16,7 +18,7 @@ type Info = {
   velocity: any
 }
 
-const Task: React.FC<TaskProps> = ({ title, completed }) => {
+const Task: React.FC<TaskProps> = ({ id, title, completed, handleDelete }) => {
   const [checked, setChecked] = useState(completed)
   const x = useMotionValue(0)
   const controls = useAnimation()
@@ -71,10 +73,15 @@ const Task: React.FC<TaskProps> = ({ title, completed }) => {
       </motion.div>
       <motion.div style={{ opacity }}>
         <Actions className="d--flex">
-          <button className="edit bg--cta p--16 d--flex ai--center jc--space-between">
+          <button 
+            className="edit bg--cta p--16 d--flex ai--center jc--space-between"
+          >
             <AiOutlineEdit size="1.4rem" className="c--white" />
           </button>
-          <button className="delete bg--red p--16 d--flex ai--center jc--space-between">
+          <button 
+            className="delete bg--red p--16 d--flex ai--center jc--space-between"
+            onClick={() => handleDelete(id)}
+          >
             <AiOutlineDelete size="1.4rem" className="c--white" />
           </button>
         </Actions>

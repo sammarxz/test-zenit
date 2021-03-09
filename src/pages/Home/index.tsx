@@ -1,9 +1,11 @@
 import { Component } from 'react'
 import { motion } from 'framer-motion'
 import { AiOutlinePlus } from 'react-icons/ai'
+import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
 import { Todo } from '../../store/ducks/todos/types'
+import * as TodosActions from '../../store/ducks/todos/actions'
 import { ApplicationState } from '../../store'
 
 import { Layout, Input, Task } from "../../components"
@@ -15,16 +17,22 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  todos: Todo[],
+  todos: Todo[];
+  removeTodo(id: number): any;
 }
 
-class Home extends Component<StateProps, DispatchProps> {
+class Home extends Component<DispatchProps, StateProps> {
   state = {
     todos: this.props.todos
   }
 
+  deleteTodo = (id:number) => {
+    this.props.removeTodo(id)
+    // console.log(id, this.props)
+  }
+
   render() {
-    const { todos } = this.state
+    const { todos } = this.props
 
     const transition = {
       duration: 0.4,
@@ -60,7 +68,13 @@ class Home extends Component<StateProps, DispatchProps> {
           <hr className="mt--32" />
           <div className="mt--16">
            {todos.map(todo => (
-             <Task key={todo.id} title={todo.title} completed={todo.completed} />
+             <Task 
+              key={todo.id} 
+              id={todo.id} 
+              title={todo.title} 
+              completed={todo.completed}
+              handleDelete={this.deleteTodo}
+            />
            ))}
           </div>
         </motion.div>
@@ -102,4 +116,7 @@ const mapStateToProps = (state: ApplicationState) => ({
   todos: state.todos.data,
 })
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch:Dispatch) => 
+  bindActionCreators(TodosActions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

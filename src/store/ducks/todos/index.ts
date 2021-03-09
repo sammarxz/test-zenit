@@ -23,6 +23,10 @@ const reducer: Reducer<TodosState> = (state = INITIAL_STATE, action) => {
           action.payload.data
         ]
       }
+    case TodosTypes.REMOVE_TODO:
+      return {
+        data: state.data.filter(todo => todo.id !== action.payload)
+      }
     default:
       return state
   }
