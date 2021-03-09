@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line no-use-before-define
 import React, { Component } from "react";
 import { motion } from "framer-motion";

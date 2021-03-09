@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from "react";
