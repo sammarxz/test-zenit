@@ -1,9 +1,16 @@
-import React from 'react'
-import { Moment } from 'moment'
-import { motion } from 'framer-motion'
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-shadow */
+/* eslint-disable react/prop-types */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-use-before-define */
+import React from "react";
+import { Moment } from "moment";
+import { motion } from "framer-motion";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
-import { MonthNavigation } from './styles'
+import { MonthNavigation } from "./styles";
 
 interface HeadingProps {
   date: Moment;
@@ -11,14 +18,12 @@ interface HeadingProps {
   resetDate: Function;
 }
 
-const Heading: React.FC<HeadingProps> = ({ 
-  date, changeMonth, resetDate
-}) => {
+const Heading: React.FC<HeadingProps> = ({ date, changeMonth, resetDate }) => {
   return (
     <MonthNavigation className="d--flex ai--center jc--space-between mb--24">
       <h1 onClick={() => resetDate()}>
-        <span className="mr--8">{date.format('MMM')}</span>
-        <span>{date.format('YYYY')}</span>
+        <span className="mr--8">{date.format("MMM")}</span>
+        <span>{date.format("YYYY")}</span>
       </h1>
       <div className="d--flex">
         <motion.button
@@ -37,7 +42,7 @@ const Heading: React.FC<HeadingProps> = ({
         </motion.button>
       </div>
     </MonthNavigation>
-  )
-}
+  );
+};
 
-export { Heading }
+export { Heading };

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Actions = styled.div`
   position: absolute;
@@ -9,6 +9,6 @@ const Actions = styled.div`
   .edit {
     border-radius: 8px 0px 0px 8px;
   }
-`
+`;
 
-export { Actions }
+export { Actions };

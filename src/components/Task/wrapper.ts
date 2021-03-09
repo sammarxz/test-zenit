@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: relative;
-`
+`;
 
-export { Wrapper }
+export { Wrapper };

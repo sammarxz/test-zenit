@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle, css } from "styled-components";
 
 export default createGlobalStyle`
   /* Colors */
@@ -40,16 +40,18 @@ export default createGlobalStyle`
 
   /* Spaces */
 
-  ${[0, 4, 8, 16, 24, 32, 40, 72].map((size) => css`
-    .m--${size} {
-      margin: ${size}px;
-    }
+  ${[0, 4, 8, 16, 24, 32, 40, 72].map(
+    (size) => css`
+      .m--${size} {
+        margin: ${size}px;
+      }
 
-    .p--${size} {
-      padding: ${size}px;
-    }
+      .p--${size} {
+        padding: ${size}px;
+      }
 
-    ${['top', 'right', 'bottom', 'left'].map((dir) => css`
+      ${["top", "right", "bottom", "left"].map(
+        (dir) => css`
       .m${dir[0]}--${size}{
         margin-${dir}: ${size}px;
       }
@@ -57,8 +59,10 @@ export default createGlobalStyle`
       .p${dir[0]}--${size}{
         padding-${dir}: ${size}px;
       }
-    `)}
-  `)}
+    `
+      )}
+    `
+  )}
 
 
   /* Sizes */
@@ -71,15 +75,17 @@ export default createGlobalStyle`
     height: 100%;
   }
 
-  ${[8, 16, 24, 32, 40, 72].map((size) => css`
-    .w--${size} {
-      width: ${size}px;
-    }
+  ${[8, 16, 24, 32, 40, 72].map(
+    (size) => css`
+      .w--${size} {
+        width: ${size}px;
+      }
 
-    .h--${size} {
-      height: ${size}px;
-    }
-  `)}
+      .h--${size} {
+        height: ${size}px;
+      }
+    `
+  )}
 
 
   /* Flex */
@@ -183,4 +189,4 @@ export default createGlobalStyle`
   .d--inline {
     display: inline;
   }
-`
+`;

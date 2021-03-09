@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Checkbox = styled.div`
   width: 100%;
@@ -13,32 +13,32 @@ const Checkbox = styled.div`
       position: relative;
       display: flex;
       align-items: center;
-      transition: color .3s cubic-bezier(.4,.0,.23,1);
+      transition: color 0.3s cubic-bezier(0.4, 0, 0.23, 1);
 
       & > span {
         background: transparent;
         border: 2px solid var(--color-border);
         border-radius: 4px;
-        cursor: pointer; 
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-right: 1em;
         width: 24px;
         height: 24px;
-        transition: all .3s cubic-bezier(.4,.0,.23,1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.23, 1);
       }
 
       & > ins {
         display: block;
         text-decoration: none;
-        transition: color .3s cubic-bezier(.4,.0,.23,1);
+        transition: color 0.3s cubic-bezier(0.4, 0, 0.23, 1);
         overflow: hidden;
         position: relative;
 
         &:after {
           background-color: var(--color-light-gray);
-          content: '';
+          content: "";
           display: block;
           height: 1px;
           width: 100%;
@@ -53,18 +53,19 @@ const Checkbox = styled.div`
     &:checked + label {
       & > span {
         border: 12px solid var(--color-light-gray);
-        animation: shrink-bounce .2s cubic-bezier(.4,.0,.23,1);
-  
+        animation: shrink-bounce 0.2s cubic-bezier(0.4, 0, 0.23, 1);
+
         &:before {
-          content: '';
+          content: "";
           position: absolute;
-          top: .6em;
-          left: .3em;
+          top: 0.6em;
+          left: 0.3em;
           border-right: 3px solid transparent;
           border-bottom: 3px solid transparent;
           transform: rotate(45deg);
           transform-origin: 0% 100%;
-          animation: checkbox-check .3s .3s cubic-bezier(.4,.0,.23,1) forwards;
+          animation: checkbox-check 0.3s 0.3s cubic-bezier(0.4, 0, 0.23, 1)
+            forwards;
         }
       }
 
@@ -72,7 +73,8 @@ const Checkbox = styled.div`
         color: var(--color-light-gray);
 
         &:after {
-          animation: line-animation .2s .3s cubic-bezier(.4,.0,.23,1) forwards;
+          animation: line-animation 0.2s 0.3s cubic-bezier(0.4, 0, 0.23, 1)
+            forwards;
         }
       }
     }
@@ -88,41 +90,41 @@ const Checkbox = styled.div`
     }
   }
 
-  @keyframes shrink-bounce{
-    0%{
+  @keyframes shrink-bounce {
+    0% {
       transform: scale(1);
     }
 
-    33%{    
-      transform: scale(.85);
+    33% {
+      transform: scale(0.85);
     }
 
-    100%{
-      transform: scale(1);    
+    100% {
+      transform: scale(1);
     }
   }
 
-  @keyframes checkbox-check{
-    0%{
+  @keyframes checkbox-check {
+    0% {
       width: 0;
       height: 0;
       border-color: #fff;
-      transform: translate3d(0,0,0) rotate(45deg);
+      transform: translate3d(0, 0, 0) rotate(45deg);
     }
 
-    33%{
-      width: .3em;
+    33% {
+      width: 0.3em;
       height: 0;
-      transform: translate3d(0,0,0) rotate(45deg);
+      transform: translate3d(0, 0, 0) rotate(45deg);
     }
 
-    100%{    
-      width: .3em;
-      height: .6em;    
+    100% {
+      width: 0.3em;
+      height: 0.6em;
       border-color: #fff;
-      transform: translate3d(0,-.6em,0) rotate(45deg);
+      transform: translate3d(0, -0.6em, 0) rotate(45deg);
     }
   }
-`
+`;
 
-export { Checkbox }
+export { Checkbox };

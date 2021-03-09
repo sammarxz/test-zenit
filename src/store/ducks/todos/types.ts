@@ -1,9 +1,10 @@
+/* eslint-disable no-shadow */
 /**
  * Action types
  */
-export enum  TodosTypes {
-  ADD_TODO = '@todos/ADD_TODO',
-  REMOVE_TODO = '@todos/REMOVE_TODO',
+export enum TodosTypes {
+  ADD_TODO = "@todos/ADD_TODO",
+  REMOVE_TODO = "@todos/REMOVE_TODO",
 }
 
 /**
@@ -22,5 +23,5 @@ export interface Todo {
  * State type
  */
 export interface TodosState {
-  data: Todo[]
+  data: Todo[];
 }

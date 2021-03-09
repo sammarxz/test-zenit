@@ -1,13 +1,18 @@
-import React from 'react'
-import moment, { Moment } from 'moment'
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-shadow */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import React from "react";
+import moment, { Moment } from "moment";
 
-import { Heading } from './Heading'
-import { Days } from './Days'
+import { Heading } from "./Heading";
+import { Days } from "./Days";
 
-import { CalendarWrapper } from './styles'
+import { CalendarWrapper } from "./styles";
 
 interface CalendarProps {
-  onSelectDate: Function
+  onSelectDate: Function;
 }
 
 interface CalendarState {
@@ -17,52 +22,54 @@ interface CalendarState {
 }
 
 class Calendar extends React.Component<CalendarProps, CalendarState> {
-  constructor(props:any) {
-    super(props)
+  constructor(props: any) {
+    super(props);
 
     this.state = {
       date: moment(),
       startDate: moment(),
-      endDate: moment()
-    }
+      endDate: moment(),
+    };
   }
 
   resetDate() {
     this.setState({
-      date: moment()
-    })
+      date: moment(),
+    });
   }
 
-  changeMonth(month:any) {
-    const { date } = this.state
+  changeMonth(month: any) {
+    const { date } = this.state;
 
-    date.month(month)
-    this.setState(
-      date
-    )
+    date.month(month);
+    this.setState(date);
   }
 
-  changeDate(date:any) {
-    const { onSelectDate } = this.props
-    let { startDate, endDate } = this.state
+  changeDate(date: any) {
+    const { onSelectDate } = this.props;
+    let { startDate, endDate } = this.state;
 
     if (undefined !== startDate) {
-      if (startDate === null || date.isBefore(startDate, 'day') || ! startDate.isSame(endDate, 'day')) {
+      if (
+        startDate === null ||
+        date.isBefore(startDate, "day") ||
+        !startDate.isSame(endDate, "day")
+      ) {
         startDate = moment(date);
         endDate = moment(date);
-      } else if (date.isSame(startDate, 'day') && date.isSame(endDate, 'day')) {
+      } else if (date.isSame(startDate, "day") && date.isSame(endDate, "day")) {
         startDate = undefined;
         endDate = undefined;
-      } else if (date.isAfter(startDate, 'day')) {
+      } else if (date.isAfter(startDate, "day")) {
         endDate = moment(date);
       }
-  
+
       this.setState({
         startDate,
-        endDate
+        endDate,
       });
 
-      onSelectDate(startDate, endDate)
+      onSelectDate(startDate, endDate);
     }
   }
 
@@ -71,20 +78,20 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
     return (
       <CalendarWrapper>
-        <Heading 
-          date={date} 
-          changeMonth={(month:any) => this.changeMonth(month)}
+        <Heading
+          date={date}
+          changeMonth={(month: any) => this.changeMonth(month)}
           resetDate={() => this.resetDate()}
         />
-        <Days 
-          onClick={(date:any) => this.changeDate(date)} 
-          date={date} 
-          startDate={startDate} 
+        <Days
+          onClick={(date: any) => this.changeDate(date)}
+          date={date}
+          startDate={startDate}
           endDate={endDate}
         />
       </CalendarWrapper>
-    )
+    );
   }
 }
 
-export { Calendar }
+export { Calendar };

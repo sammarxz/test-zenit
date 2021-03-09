@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   html {
@@ -68,4 +68,4 @@ export default createGlobalStyle`
     display: block;
     border-bottom: 1px solid var(--color-border);
   }
-`
+`;

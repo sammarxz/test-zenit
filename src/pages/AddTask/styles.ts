@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { motion } from 'framer-motion'
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const AddButton = styled(motion.div)`
   position: fixed;
@@ -9,7 +9,7 @@ const AddButton = styled(motion.div)`
   width: auto;
   height: 60px;
   z-index: 9;
-`
+`;
 
 const RadioGroup = styled.div`
   display: flex;
@@ -40,14 +40,14 @@ const RadioGroup = styled.div`
     text-align: center;
     padding: 12px 24px;
     margin-right: 16px;
-    opacity: .6;
-    transition: all .3s ease-in-out;
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       cursor: pointer;
     }
   }
-`
+`;
 
 const CalendarWrapper = styled(motion.div)`
   background: #fff;
@@ -58,7 +58,7 @@ const CalendarWrapper = styled(motion.div)`
   z-index: 99;
   padding-top: 42px;
   border-radius: 16px 16px 0 0;
-`
+`;
 
 const CalendarOverlay = styled(motion.div)`
   background-color: rgba(0, 0, 0, 0.79);
@@ -68,6 +68,6 @@ const CalendarOverlay = styled(motion.div)`
   left: 0;
   right: 0;
   z-index: 90;
-`
+`;
 
-export { AddButton, RadioGroup, CalendarWrapper, CalendarOverlay }
+export { AddButton, RadioGroup, CalendarWrapper, CalendarOverlay };

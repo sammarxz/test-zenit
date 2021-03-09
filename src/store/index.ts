@@ -1,12 +1,12 @@
-import { createStore, Store } from 'redux'
+import { createStore, Store } from "redux";
 
-import { TodosState } from './ducks/todos/types'
-import rootReducer from './ducks/rootReducer'
+import { TodosState } from "./ducks/todos/types";
+import rootReducer from "./ducks/rootReducer";
 
 export interface ApplicationState {
-  todos: TodosState
-} 
+  todos: TodosState;
+}
 
-const store: Store<ApplicationState> = createStore(rootReducer)
+const store: Store<ApplicationState> = createStore(rootReducer);
 
-export default store
+export default store;

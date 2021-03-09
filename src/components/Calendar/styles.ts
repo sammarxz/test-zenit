@@ -1,16 +1,15 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const CalendarWrapper = styled.div``
+const CalendarWrapper = styled.div``;
 
 const MonthNavigation = styled.nav`
   h1 {
-
   }
-`
+`;
 
 const DaysWrapper = styled.nav`
   font-size: 0;
-      
+
   span {
     width: 14.28571%;
     display: inline-block;
@@ -39,8 +38,8 @@ const DaysWrapper = styled.nav`
       border-radius: 0;
     }
 
-    &.is--start, 
-    &.is--between, 
+    &.is--start,
+    &.is--between,
     &.is--end {
       background-color: var(--color-cta);
       color: #fff;
@@ -62,6 +61,6 @@ const DaysWrapper = styled.nav`
       display: none;
     }
   }
-`
+`;
 
-export { CalendarWrapper, MonthNavigation, DaysWrapper }
+export { CalendarWrapper, MonthNavigation, DaysWrapper };
